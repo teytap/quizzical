@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Karla", sans-serif;
+  background-color: #f5f7fb;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(./images/blobs.png), url(./images/blobb.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 0%, left 100%;
+}
+.welcome {
+  text-align: center;
+  font-size: 16px;
+  color: #293264;
+}
+.welcome button {
+  padding: 20px;
+  width: 192px;
+  border: none;
+  border-radius: 15px;
+  margin: 30px;
+  background-color: #4d5b9e;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+button:hover {
+  background-color: #5b67a6;
+}
+button:active {
+  background-color: #5b67a6;
+  box-shadow: 0 5px rgb(81, 80, 80);
+  transform: translateY(2px);
+}
