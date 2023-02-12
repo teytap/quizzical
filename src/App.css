@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url(./images/blobs.png), url(./images/blobb.png);
+  background-image: url(/images/blobs.png), url(/images/blobb.png);
   background-repeat: no-repeat, no-repeat;
   background-position: right 0%, left 100%;
 }
