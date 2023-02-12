@@ -79,3 +79,9 @@ h1 {
   text-align: center;
   color: #293264;
 }
+@media (max-width: 375px) {
+  .answers-container {
+    display: block;
+    margin: 10px 0px;
+  }
+}

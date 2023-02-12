@@ -5,7 +5,7 @@ export default function Answers(props) {
   // Before you start the Quiz. No anwer is selected.
   if (props.score === null) {
     styles = {
-      backgroundColor: props.isSelected ? "#D6DBF5" : "white",
+      backgroundColor: props.isSelected ? "#D6DBF5" : "transparent",
       border: "1px solid #D6DBF5",
     };
   }
