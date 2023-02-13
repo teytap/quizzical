@@ -14,6 +14,12 @@ export default function Quiz(props) {
   ));
   return (
     <div className="quiz--container">
+      <div
+        className="category-text"
+        style={{ opacity: "0.5", fontStyle: "italic" }}
+      >
+        {props.category}
+      </div>
       <h3 id="form-prompt">{props.question}</h3>
       <div className="answers-div">{answerElements}</div>
       <hr />

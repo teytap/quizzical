@@ -101,6 +101,7 @@ function App() {
   const fiveQuestions = questions.map((q) => (
     <Quiz
       key={q.id}
+      category={q.category}
       question={q.question}
       allAnswers={q.allAnswers}
       score={score}
