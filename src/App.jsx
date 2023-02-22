@@ -11,14 +11,13 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(null);
   const [play, setPlay] = useState(false);
-
-  //const [fiveQuestions, setFiveQuestions] = useState([]);
   const apiUrl =
     "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
   //const apiUrl =
   //("https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple");
 
   // decode function fixes unreadable html
+
   function decode(html) {
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
@@ -29,15 +28,13 @@ function App() {
     async function getQuestions() {
       const response = await fetch(apiUrl);
       const data = await response.json();
-
-      //add id, 4 answer options in a random order, and a decoded question
+      //added id, 4 answers randomly, and a decoded question
       const newQuizData = data.results.map((que) => {
         const question = decode(que.question);
         //mix answer array
         let allAnswers = [];
         allAnswers.push(que.incorrect_answers);
         allAnswers.push(que.correct_answer);
-
         allAnswers = allAnswers.flat().sort(() => Math.random() - 0.5);
         allAnswers = allAnswers.map((ans) => ({
           id: nanoid(),
@@ -62,6 +59,7 @@ function App() {
   function startQuiz() {
     setStart((prevStart) => !prevStart);
   }
+
   function checkAnswers() {
     let count = 0;
     questions.forEach((q) => {
@@ -74,8 +72,9 @@ function App() {
     console.log(count);
     setScore(count);
   }
+
   function selectAnswer(event, questionId) {
-    //isSelected -> true
+    //changes isSelected to true
     const selectedAnswer = event.target.innerHTML;
 
     const updatedQuestions = questions.map((q) => {
@@ -94,6 +93,7 @@ function App() {
     });
     setQuestions(updatedQuestions);
   }
+
   function playAgain() {
     setPlay((prevPlay) => !prevPlay);
     setScore(null);
@@ -108,8 +108,10 @@ function App() {
       selectAnswer={() => selectAnswer(event, q.id)}
     />
   ));
+
   const welcomeStyle = { display: start ? "none" : "block" };
   const quizStyle = { display: start ? "block" : "none" };
+  //change buttons display after submit quiz
   const checkAnswersStyle = { display: score === null ? "block" : "none" };
   const playAgainStyle = { display: score === null ? "none" : "block" };
 
@@ -132,6 +134,7 @@ function App() {
         <h3 className="result-text">
           {score !== null && `You scored ${score}/5 correct answers`}
         </h3>
+
         <button
           className="check--btn"
           type="submit"
@@ -140,7 +143,14 @@ function App() {
         >
           Play Again
         </button>
+        <footer>
+          API from{" "}
+          <a href="https://opentdb.com/" target="_blank" rel="noreferrer">
+            opentdb
+          </a>
+        </footer>
       </div>
+
       {score > 4 && <Confetti />}
     </div>
   );

@@ -63,6 +63,10 @@ body {
   border-radius: 8px;
   text-align: center;
 }
+h1 {
+  text-align: center;
+  color: #293264;
+}
 
 hr {
   border: 1px solid #dbdef0;
@@ -75,9 +79,9 @@ hr {
   text-align: center;
   color: #4d5b9e;
 }
-h1 {
+footer {
+  font-size: smaller;
   text-align: center;
-  color: #293264;
 }
 @media (max-width: 375px) {
   .answers-container {
