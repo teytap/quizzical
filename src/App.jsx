@@ -26,7 +26,6 @@ function App() {
       }${difficulty ? `&difficulty=${difficulty}` : ""}`
     );
   }, [form]);
-  console.log(apiUrl);
 
   // decode function fixes unreadable html
 
@@ -83,7 +82,7 @@ function App() {
         }
       });
     });
-    console.log(count);
+
     setScore(count);
   }
 

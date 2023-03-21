@@ -26,6 +26,26 @@ body {
   align-items: center;
   justify-content: space-around;
 }
+.welcome--container .slogan {
+  color: #293264;
+  animation-name: colors;
+  animation-duration: 3s;
+  font-size: 20px;
+}
+@keyframes colors {
+  0% {
+    color: #5b67a6;
+  }
+  25% {
+    color: #fffad1;
+  }
+  50% {
+    color: #deebf8;
+  }
+  100% {
+    color: #5b67a6;
+  }
+}
 .welcome--container form {
   display: flex;
   flex-direction: column;

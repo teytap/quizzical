@@ -1,6 +1,6 @@
 export const { categories, difficulties } = {
   categories: [
-    { topic: "----Choose Topic----", value: "" },
+    { topic: "----Random----", value: "" },
     { topic: "General Knowledge", value: "9" },
     { topic: "Animals ", value: "27" },
     { topic: "Art ", value: "25" },
@@ -26,7 +26,7 @@ export const { categories, difficulties } = {
     { topic: "Sports", value: "21" },
   ],
   difficulties: [
-    { difficulty: "----Choose Difficulty----", value: "" },
+    { difficulty: "----Random----", value: "" },
     { difficulty: "easy", value: "easy" },
     { difficulty: "medium", value: "medium" },
     { difficulty: "hard", value: "hard" },
