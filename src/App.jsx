@@ -3,18 +3,30 @@ import Welcome from "./components/Welcome";
 import Quiz from "./components/Quiz";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
+import { categories, difficulties } from "./data";
 
 import "./App.css";
 
 function App() {
   const [start, setStart] = useState(false);
+  const [form, setForm] = useState({
+    category: "",
+    difficulty: "",
+  });
+  const { category, difficulty } = form;
+  const [apiUrl, setApiUrl] = useState("https://opentdb.com/api.php?amount=5");
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(null);
   const [play, setPlay] = useState(false);
-  const apiUrl =
-    "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
-  //const apiUrl =
-  //("https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple");
+
+  useEffect(() => {
+    setApiUrl(
+      `https://opentdb.com/api.php?amount=5${
+        category ? `&category=${category}` : ""
+      }${difficulty ? `&difficulty=${difficulty}` : ""}`
+    );
+  }, [form]);
+  console.log(apiUrl);
 
   // decode function fixes unreadable html
 
@@ -54,11 +66,13 @@ function App() {
       setQuestions(() => newQuizData);
     }
     getQuestions();
-  }, [play]);
+  }, [play, apiUrl]); // questions change when apiUrl changes
 
   function startQuiz() {
     setStart((prevStart) => !prevStart);
   }
+  const handleChange = ({ target: { name, value } }) =>
+    setForm((prev) => ({ ...prev, [name]: value }));
 
   function checkAnswers() {
     let count = 0;
@@ -115,10 +129,45 @@ function App() {
   const checkAnswersStyle = { display: score === null ? "block" : "none" };
   const playAgainStyle = { display: score === null ? "none" : "block" };
 
+  //a form in welcome as props:to choose category and difficulty came from data.js
+  const formHtml = (
+    <form>
+      <label htmlFor="difficulty">Set difficulty</label>
+      <select
+        id="difficulty"
+        value={difficulty}
+        onChange={handleChange}
+        name="difficulty"
+      >
+        {" "}
+        {difficulties.map(({ difficulty, value }) => (
+          <option value={value} key={nanoid()}>
+            {difficulty}
+          </option>
+        ))}
+      </select>
+
+      <label htmlFor="category">Choose a topic</label>
+
+      <select
+        id="category"
+        value={category}
+        onChange={handleChange}
+        name="category"
+      >
+        {categories.map(({ topic, value }) => (
+          <option value={value} key={nanoid()}>
+            {topic}
+          </option>
+        ))}
+      </select>
+    </form>
+  );
+
   return (
     <div className="App">
       <div style={welcomeStyle}>
-        <Welcome startQuiz={startQuiz} />
+        <Welcome startQuiz={startQuiz} formHtml={formHtml} />
       </div>
       <div style={quizStyle}>
         <h1>Quizzical</h1>

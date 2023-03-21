@@ -21,7 +21,36 @@ body {
   text-align: center;
   font-size: 16px;
   color: #293264;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
+.welcome--container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #deebf8;
+  margin-top: 20px;
+  padding: 10px 10px 20px 10px;
+  border-radius: 20px;
+}
+.welcome--container form label {
+  margin: 10px 0px;
+}
+.welcome--container form select {
+  font-family: "Karla", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #5b67a6;
+  text-align: center;
+  background-color: #fffad1;
+  padding: 10px 5px;
+  border-radius: 12px;
+  border: none;
+}
+
 .start--quiz--btn,
 .check--btn {
   padding: 20px;
