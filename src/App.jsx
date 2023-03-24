@@ -93,11 +93,7 @@ function App() {
     const updatedQuestions = questions.map((q) => {
       if (q.id === questionId) {
         const updatedAnswers = q.allAnswers.map((ans) => {
-          if (ans.choice === selectedAnswer) {
-            return { ...ans, isSelected: true };
-          } else {
-            return { ...ans, isSelected: false };
-          }
+          return { ...ans, isSelected: ans.choice === selectedAnswer };
         });
         return { ...q, allAnswers: updatedAnswers };
       } else {
