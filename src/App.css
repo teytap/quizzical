@@ -22,6 +22,7 @@ body {
   text-align: center;
   font-size: 16px;
   color: #293264;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,6 +101,7 @@ body {
 /* quiz */
 .quiz--container {
   color: #293264;
+
   max-width: 1000px;
 }
 .quiz--container h3 {
@@ -130,6 +132,7 @@ hr {
   text-align: center;
   color: #4d5b9e;
 }
+
 footer {
   font-size: smaller;
   text-align: center;

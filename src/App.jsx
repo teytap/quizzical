@@ -187,6 +187,18 @@ function App() {
         >
           Play Again
         </button>
+        {score !== null && (
+          <button
+            className="check--btn"
+            type="submit"
+            onClick={() => {
+              window.location.reload();
+            }}
+            style={playAgainStyle}
+          >
+            Change Quiz
+          </button>
+        )}
         <footer>
           API from{" "}
           <a href="https://opentdb.com/" target="_blank" rel="noreferrer">
@@ -195,7 +207,7 @@ function App() {
         </footer>
       </div>
 
-      {score > 4 && <Confetti />}
+      {score > 3 && <Confetti />}
     </div>
   );
 }
