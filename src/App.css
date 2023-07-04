@@ -39,7 +39,7 @@ body {
     color: #5b67a6;
   }
   25% {
-    color: #ede07fe3;
+    color: #efda3ae3;
   }
   50% {
     color: #deebf8;
@@ -101,7 +101,6 @@ body {
 /* quiz */
 .quiz--container {
   color: #293264;
-
   max-width: 1000px;
 }
 .quiz--container h3 {
@@ -126,11 +125,16 @@ hr {
 }
 .check--btn {
   display: block;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 .result-text {
   text-align: center;
   color: #4d5b9e;
+}
+.two-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex: 1 200px; */
 }
 
 footer {
@@ -141,5 +145,10 @@ footer {
   .answers-container {
     display: block;
     margin: 10px 0px;
+  }
+  .check--btn {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 15px;
   }
 }

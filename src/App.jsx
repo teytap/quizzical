@@ -122,7 +122,7 @@ function App() {
   const quizStyle = { display: start ? "block" : "none" };
   //change buttons display after submit quiz
   const checkAnswersStyle = { display: score === null ? "block" : "none" };
-  const playAgainStyle = { display: score === null ? "none" : "block" };
+  const playAgainStyle = { display: score === null ? "none" : "grid" };
 
   //a form in welcome as props:to choose category and difficulty came from data.js
   const formHtml = (
@@ -178,27 +178,28 @@ function App() {
         <h3 className="result-text">
           {score !== null && `You scored ${score}/5 correct answers`}
         </h3>
-
-        <button
-          className="check--btn"
-          type="submit"
-          onClick={playAgain}
-          style={playAgainStyle}
-        >
-          Play Again
-        </button>
-        {score !== null && (
+        <div className="two-buttons">
           <button
             className="check--btn"
             type="submit"
-            onClick={() => {
-              window.location.reload();
-            }}
+            onClick={playAgain}
             style={playAgainStyle}
           >
-            Change Quiz
+            Play Again
           </button>
-        )}
+          {score !== null && (
+            <button
+              className="check--btn"
+              type="submit"
+              onClick={() => {
+                window.location.reload();
+              }}
+              style={playAgainStyle}
+            >
+              Change Quiz
+            </button>
+          )}
+        </div>
         <footer>
           API from{" "}
           <a href="https://opentdb.com/" target="_blank" rel="noreferrer">
